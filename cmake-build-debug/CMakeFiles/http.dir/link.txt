@@ -1,0 +1,1 @@
+/usr/bin/g++   -pthread -g   CMakeFiles/http.dir/main.cpp.o CMakeFiles/http.dir/Request.cpp.o CMakeFiles/http.dir/util.cpp.o CMakeFiles/http.dir/HttpServer.cpp.o CMakeFiles/http.dir/Response.cpp.o  -o http 
