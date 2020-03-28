@@ -21,8 +21,10 @@ class HttpServer {
 public:
     HttpServer(int port, int max_count);
     ~HttpServer();
-    void bind_handle(std::string, std::string, std::function<void(Request, Response*)>);
-    void Thread_handle(int conn, std::string);
+    void do_accept(int socket_fd, int epoll_fd);
+    void disconnect(int cfd);
+    void bind_handle(std::string method, std::string url, std::function<void(Request, Response*)> func);
+    void Thread_handle(int conn);
     void run(int time_out);
 
 private:

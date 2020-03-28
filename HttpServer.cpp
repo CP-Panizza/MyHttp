@@ -54,9 +54,10 @@ HttpServer::HttpServer(int port, int max_count):count(max_count) {
 void HttpServer::run(int time_out)
 {
     std::cout << "MyHttp started" << std::endl;
+    int ret;
     while(1)
     {
-        int ret = epoll_wait(epoll_fd, epoll_events, count, time_out);
+        ret = epoll_wait(epoll_fd, epoll_events, count, time_out);
         if(ret == 0)
         {
             continue;
@@ -71,29 +72,36 @@ void HttpServer::run(int time_out)
             {
                 if(epoll_events[i].data.fd == socket_fd)
                 {
-                    sockaddr_in client_addr;
-                    memset(&client_addr, 0, sizeof(client_addr));
-                    socklen_t clilen = sizeof(struct sockaddr);
-                    int conn = accept(socket_fd, (struct sockaddr*)&client_addr, &clilen);
-//                    std::thread t(&HttpServer::Thread_handle, this, conn, std::string(inet_ntoa(client_addr.sin_addr)));
-//                    t.detach();
-                    this->Thread_handle(conn, std::string(inet_ntoa(client_addr.sin_addr)));
+                    //接受新的链接，并设置为非阻塞
+                    do_accept(socket_fd, epoll_fd);
+                } else {
+                    Thread_handle(epoll_events[i].data.fd);
                 }
             }
         }
     }
 }
 
+// 断开连接的函数
+void HttpServer::disconnect(int cfd){
+    int ret = epoll_ctl(epoll_fd, EPOLL_CTL_DEL, cfd, NULL);
+    if(ret == -1){
+        perror("epoll_ctl del cfd error");
+        return;
+    }
+    close(cfd);
+}
 
-void HttpServer::Thread_handle(int conn, std::string) {
+
+void HttpServer::Thread_handle(int conn) {
     Request request;
     char buf[MAXLINE];
     int n = recv(conn, buf, MAXLINE, 0);
     if(n == 0){
-        close(n);
+        disconnect(conn);
         return;
     } else if(n == -1){
-        close(n);
+        disconnect(conn);
         return;
     }
     buf[n] = '\0';
@@ -101,7 +109,7 @@ void HttpServer::Thread_handle(int conn, std::string) {
         request.Paser(std::string(buf));
     }catch (std::string err){
         std::cout << err << std::endl;
-        close(conn);
+        disconnect(conn);
         return;
     }
     Response response(conn);
@@ -125,7 +133,7 @@ void HttpServer::Thread_handle(int conn, std::string) {
         response.set_header("Content-Type","text/html");
         response.write(404,"Not found!");
     }
-    close(conn);
+    disconnect(conn);
 }
 
 
@@ -141,7 +149,46 @@ void HttpServer::bind_handle(std::string method, std::string url, std::function<
 }
 
 
+
+//
+//template<class T>
+//void HttpServer::bind_handle(std::string method, std::string url, T* obj, std::function<void(T::*)(Request, Response*)> *func){
+//    auto f = std::bind(func, obj, std::placeholders::_1,std::placeholders::_2);
+//    auto h = new struct handle(url, func);
+//    if(methods.count(method)){
+//        methods[method]->push_back(h);
+//    } else {
+//        auto temp = new std::list<handle*>;
+//        temp->push_back(h);
+//        methods[method] = temp;
+//    }
+//}
+
 HttpServer::~HttpServer() {
 
+}
+
+void HttpServer::do_accept(int socket_fd, int epoll_fd) {
+    struct sockaddr_in cli;
+    socklen_t len = sizeof(cli);
+    int new_fd = accept(socket_fd, (struct sockaddr*)&cli, &len);
+    if(new_fd == -1){
+        perror("accept err");
+        exit(1);
+    }
+
+    //set nonblock socket
+    int flag = fcntl(new_fd, F_GETFL);
+    flag |= O_NONBLOCK;
+    fcntl(new_fd, F_SETFL, flag);
+
+    struct epoll_event ev;
+    ev.events = EPOLLIN | EPOLLET;
+    ev.data.fd = new_fd;
+    int ret = epoll_ctl(epoll_fd, EPOLL_CTL_ADD, new_fd, &ev);
+    if(ret == -1){
+        perror("epoll_ctl err");
+        exit(1);
+    }
 }
 
