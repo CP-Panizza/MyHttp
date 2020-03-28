@@ -9,7 +9,6 @@
 
 
 void Request::Paser(std::string data) {
-
     auto x = split(data, "\r\n\r\n");
     if (!(x.size() == 2)) {
         throw std::string("data err!");

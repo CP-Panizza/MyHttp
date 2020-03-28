@@ -39,3 +39,9 @@ bool contain(std::string str, std::string target){
         return true;
     }
 }
+
+
+inline bool fiel_exists (const std::string& name) {
+    std::ifstream f(name.c_str());
+    return f.good();
+}

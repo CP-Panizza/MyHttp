@@ -1,22 +1,24 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "HttpServer.h"
 
 class MyHandle {
 public:
     int num;
-
     void Hello(Request req, Response *resp) {
-        num++;
-        resp->set_header("Content-Type", "text/html");
-        resp->write(200, "this is class func,num:" + std::to_string(num));
+        std::ifstream f("../LICENSE");
+        std::ostringstream tmp;
+        tmp << f.rdbuf();
+        std::string str = tmp.str();
+        resp->write(200, str);
     }
 };
 
 
 int main(int argc, const char **argv) {
-    std::cout << argv[0] << std::endl;
     MyHandle *myHandle = new MyHandle;
-    HttpServer *server = new HttpServer(8080, 10);
+    HttpServer *server = new HttpServer(8080, 100, std::string(argv[0]));
     server->bind_handle("GET", "/", [](Request req, Response *resp) {
         std::cout << "get a request" << std::endl;
         resp->set_header("Content-Type", "text/html");

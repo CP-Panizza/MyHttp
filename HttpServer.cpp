@@ -17,10 +17,11 @@
 #include "HttpServer.h"
 #include "Request.h"
 #include "Response.h"
+#include "util.h"
 
 #define MAXLINE 4096
 
-HttpServer::HttpServer(int port, int max_count):count(max_count) {
+HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_count), excute_pwd(pwd) {
     struct sockaddr_in server_addr;
     memset(&server_addr, 0, sizeof(&server_addr));
     server_addr.sin_family = AF_INET;
@@ -46,32 +47,23 @@ HttpServer::HttpServer(int port, int max_count):count(max_count) {
     epoll_fd = epoll_create(max_count);
     struct epoll_event ev;
     ev.data.fd = socket_fd;
-    ev.events  = EPOLLIN;
+    ev.events = EPOLLIN;
     epoll_ctl(epoll_fd, EPOLL_CTL_ADD, socket_fd, &ev);
 }
 
 
-void HttpServer::run(int time_out)
-{
+void HttpServer::run(int time_out) {
     std::cout << "MyHttp started" << std::endl;
     int ret;
-    while(1)
-    {
+    while (1) {
         ret = epoll_wait(epoll_fd, epoll_events, count, time_out);
-        if(ret == 0)
-        {
+        if (ret == 0) {
             continue;
-        }
-        else if(ret == -1)
-        {
+        } else if (ret == -1) {
             printf("socket error: %s(errno: %d)\n", strerror(errno), errno);
-        }
-        else
-        {
-            for(int i = 0; i < ret; i++)
-            {
-                if(epoll_events[i].data.fd == socket_fd)
-                {
+        } else {
+            for (int i = 0; i < ret; i++) {
+                if (epoll_events[i].data.fd == socket_fd) {
                     //接受新的链接，并设置为非阻塞
                     do_accept(socket_fd, epoll_fd);
                 } else {
@@ -83,9 +75,9 @@ void HttpServer::run(int time_out)
 }
 
 // 断开连接的函数
-void HttpServer::disconnect(int cfd){
+void HttpServer::disconnect(int cfd) {
     int ret = epoll_ctl(epoll_fd, EPOLL_CTL_DEL, cfd, NULL);
-    if(ret == -1){
+    if (ret == -1) {
         perror("epoll_ctl del cfd error");
         return;
     }
@@ -97,29 +89,50 @@ void HttpServer::Thread_handle(int conn) {
     Request request;
     char buf[MAXLINE];
     int n = recv(conn, buf, MAXLINE, 0);
-    if(n == 0){
+    if (n == 0) {
         disconnect(conn);
         return;
-    } else if(n == -1){
+    } else if (n == -1) {
         disconnect(conn);
         return;
     }
     buf[n] = '\0';
     try {
         request.Paser(std::string(buf));
-    }catch (std::string err){
+    } catch (std::string err) {
         std::cout << err << std::endl;
         disconnect(conn);
         return;
     }
+
+
+
     Response response(conn);
+
+    if (request.method == "GET" && excute_pwd != "") {
+
+        if(request.path == "/"){
+            std::string index = excute_pwd + "/index.html";
+            if(fiel_exists(index)){
+                response.set_header("Content-Type","text/html");
+                std::ifstream f(index);
+                std::ostringstream tmp;
+                tmp << f.rdbuf();
+                std::string str = tmp.str();
+                response.write(200, str);
+                disconnect(conn);
+                return;
+            }
+        }
+    }
+
     bool ok = false;
     std::function<void(Request, Response *)> temp_handle;
-    if(methods.count(request.method)){
+    if (methods.count(request.method)) {
         auto l = methods[request.method];
-        if(l->size()!=0){
-            for(auto h : *l){
-                if(h->url == request.path){
+        if (l->size() != 0) {
+            for (auto h : *l) {
+                if (h->url == request.path) {
                     temp_handle = h->method;
                     ok = true;
                     break;
@@ -127,11 +140,11 @@ void HttpServer::Thread_handle(int conn) {
             }
         }
     }
-    if(ok){
+    if (ok) {
         temp_handle(request, &response);
-    }else {
-        response.set_header("Content-Type","text/html");
-        response.write(404,"Not found!");
+    } else {
+        response.set_header("Content-Type", "text/html");
+        response.write(404, "Not found!");
     }
     disconnect(conn);
 }
@@ -139,10 +152,10 @@ void HttpServer::Thread_handle(int conn) {
 
 void HttpServer::bind_handle(std::string method, std::string url, std::function<void(Request, Response *)> func) {
     auto h = new struct handle(url, func);
-    if(methods.count(method)){
+    if (methods.count(method)) {
         methods[method]->push_back(h);
     } else {
-        auto temp = new std::list<handle*>;
+        auto temp = new std::list<handle *>;
         temp->push_back(h);
         methods[method] = temp;
     }
@@ -171,8 +184,8 @@ HttpServer::~HttpServer() {
 void HttpServer::do_accept(int socket_fd, int epoll_fd) {
     struct sockaddr_in cli;
     socklen_t len = sizeof(cli);
-    int new_fd = accept(socket_fd, (struct sockaddr*)&cli, &len);
-    if(new_fd == -1){
+    int new_fd = accept(socket_fd, (struct sockaddr *) &cli, &len);
+    if (new_fd == -1) {
         perror("accept err");
         exit(1);
     }
@@ -186,7 +199,7 @@ void HttpServer::do_accept(int socket_fd, int epoll_fd) {
     ev.events = EPOLLIN | EPOLLET;
     ev.data.fd = new_fd;
     int ret = epoll_ctl(epoll_fd, EPOLL_CTL_ADD, new_fd, &ev);
-    if(ret == -1){
+    if (ret == -1) {
         perror("epoll_ctl err");
         exit(1);
     }
