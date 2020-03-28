@@ -48,10 +48,10 @@ RM = /home/cmj/cmake-3.11.4/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cmj/CLionProjects/http
+CMAKE_SOURCE_DIR = /home/cmj/CLionProjects/MyHttp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cmj/CLionProjects/http/cmake-build-debug
+CMAKE_BINARY_DIR = /home/cmj/CLionProjects/MyHttp/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles /home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles /home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named http
+# Target rules for targets named MyHttp
 
 # Build rule for target.
-http: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 http
-.PHONY : http
+MyHttp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MyHttp
+.PHONY : MyHttp
 
 # fast build rule for target.
-http/fast:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/build
-.PHONY : http/fast
+MyHttp/fast:
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/build
+.PHONY : MyHttp/fast
 
 HttpServer.o: HttpServer.cpp.o
 
@@ -129,7 +129,7 @@ HttpServer.o: HttpServer.cpp.o
 
 # target to build an object file
 HttpServer.cpp.o:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/HttpServer.cpp.o
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/HttpServer.cpp.o
 .PHONY : HttpServer.cpp.o
 
 HttpServer.i: HttpServer.cpp.i
@@ -138,7 +138,7 @@ HttpServer.i: HttpServer.cpp.i
 
 # target to preprocess a source file
 HttpServer.cpp.i:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/HttpServer.cpp.i
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/HttpServer.cpp.i
 .PHONY : HttpServer.cpp.i
 
 HttpServer.s: HttpServer.cpp.s
@@ -147,7 +147,7 @@ HttpServer.s: HttpServer.cpp.s
 
 # target to generate assembly for a file
 HttpServer.cpp.s:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/HttpServer.cpp.s
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/HttpServer.cpp.s
 .PHONY : HttpServer.cpp.s
 
 Request.o: Request.cpp.o
@@ -156,7 +156,7 @@ Request.o: Request.cpp.o
 
 # target to build an object file
 Request.cpp.o:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Request.cpp.o
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Request.cpp.o
 .PHONY : Request.cpp.o
 
 Request.i: Request.cpp.i
@@ -165,7 +165,7 @@ Request.i: Request.cpp.i
 
 # target to preprocess a source file
 Request.cpp.i:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Request.cpp.i
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Request.cpp.i
 .PHONY : Request.cpp.i
 
 Request.s: Request.cpp.s
@@ -174,7 +174,7 @@ Request.s: Request.cpp.s
 
 # target to generate assembly for a file
 Request.cpp.s:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Request.cpp.s
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Request.cpp.s
 .PHONY : Request.cpp.s
 
 Response.o: Response.cpp.o
@@ -183,7 +183,7 @@ Response.o: Response.cpp.o
 
 # target to build an object file
 Response.cpp.o:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Response.cpp.o
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Response.cpp.o
 .PHONY : Response.cpp.o
 
 Response.i: Response.cpp.i
@@ -192,7 +192,7 @@ Response.i: Response.cpp.i
 
 # target to preprocess a source file
 Response.cpp.i:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Response.cpp.i
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Response.cpp.i
 .PHONY : Response.cpp.i
 
 Response.s: Response.cpp.s
@@ -201,7 +201,7 @@ Response.s: Response.cpp.s
 
 # target to generate assembly for a file
 Response.cpp.s:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/Response.cpp.s
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/Response.cpp.s
 .PHONY : Response.cpp.s
 
 main.o: main.cpp.o
@@ -210,7 +210,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -219,7 +219,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -228,7 +228,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 util.o: util.cpp.o
@@ -237,7 +237,7 @@ util.o: util.cpp.o
 
 # target to build an object file
 util.cpp.o:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/util.cpp.o
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/util.cpp.o
 .PHONY : util.cpp.o
 
 util.i: util.cpp.i
@@ -246,7 +246,7 @@ util.i: util.cpp.i
 
 # target to preprocess a source file
 util.cpp.i:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/util.cpp.i
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/util.cpp.i
 .PHONY : util.cpp.i
 
 util.s: util.cpp.s
@@ -255,7 +255,7 @@ util.s: util.cpp.s
 
 # target to generate assembly for a file
 util.cpp.s:
-	$(MAKE) -f CMakeFiles/http.dir/build.make CMakeFiles/http.dir/util.cpp.s
+	$(MAKE) -f CMakeFiles/MyHttp.dir/build.make CMakeFiles/MyHttp.dir/util.cpp.s
 .PHONY : util.cpp.s
 
 # Help Target
@@ -266,7 +266,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... http"
+	@echo "... MyHttp"
 	@echo "... HttpServer.o"
 	@echo "... HttpServer.i"
 	@echo "... HttpServer.s"

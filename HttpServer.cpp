@@ -53,6 +53,7 @@ HttpServer::HttpServer(int port, int max_count):count(max_count) {
 
 void HttpServer::run(int time_out)
 {
+    std::cout << "MyHttp started" << std::endl;
     while(1)
     {
         int ret = epoll_wait(epoll_fd, epoll_events, count, time_out);

@@ -9,9 +9,16 @@
 
 
 void Request::Paser(std::string data) {
-    bool has_body = false;
+
+    auto x = split(data, "\r\n\r\n");
+    if (!(x.size() == 2)) {
+        throw std::string("data err!");
+    }
+    if (x[1] != "") {
+        this->body = x[1];
+    }
     bool has_url_param = false;
-    auto all = split(data, "\r\n");
+    auto all = split(x[0], "\r\n");
     auto temp = all[0];
     auto line = split(temp, " ");
     if (line.size() != 3) {
@@ -38,28 +45,13 @@ void Request::Paser(std::string data) {
         }
     }
 
-    if (this->method == "GET" || this->method == "DELETE") {
-        for (int i = 1; i < all.size(); ++i) {
-            if (all[i] != "" && contain(all[i], ":")) {
-                auto head = split(all[i], ":");
-                if (head.size() == 2) {
-                    this->header[head[0]] = head[1];
-                }
+    for (int i = 1; i < all.size(); ++i) {
+        if (all[i] != "" && contain(all[i], ":")) {
+            auto head = split(all[i], ":");
+            if (head.size() == 2) {
+                this->header[head[0]] = head[1];
             }
-        }
-    } else {
-        auto body_index = data.find("\r\n\r\n") + 4;
-        if (body_index == data.size()) { //无请求体
-            for (int i = 1; i < all.size(); ++i) {
-                if (all[i] != "" && contain(all[i], ":")) {
-                    auto head = split(all[i], ":");
-                    if (head.size() == 2) {
-                        this->header[head[0]] = head[1];
-                    }
-                }
-            }
-        } else {
-            std::cout << "q" << std::endl;
         }
     }
+
 }

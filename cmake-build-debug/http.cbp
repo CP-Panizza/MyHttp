@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/cmj/CLionProjects/http/cmake-build-debug"/>
+				<Option working_dir="/home/cmj/CLionProjects/MyHttp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/cmj/CLionProjects/http/cmake-build-debug"/>
+				<Option working_dir="/home/cmj/CLionProjects/MyHttp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/cmj/CLionProjects/http/cmake-build-debug"/>
+				<Option working_dir="/home/cmj/CLionProjects/MyHttp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="http">
-				<Option output="/home/cmj/CLionProjects/http/cmake-build-debug/http" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cmj/CLionProjects/http/cmake-build-debug"/>
+			<Target title="MyHttp">
+				<Option output="/home/cmj/CLionProjects/MyHttp/cmake-build-debug/MyHttp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmj/CLionProjects/MyHttp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 http"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyHttp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="http/fast">
-				<Option output="/home/cmj/CLionProjects/http/cmake-build-debug/http" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cmj/CLionProjects/http/cmake-build-debug"/>
+			<Target title="MyHttp/fast">
+				<Option output="/home/cmj/CLionProjects/MyHttp/cmake-build-debug/MyHttp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmj/CLionProjects/MyHttp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,41 +77,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 http/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/http/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyHttp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cmj/CLionProjects/MyHttp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/cmj/CLionProjects/http/HttpServer.cpp">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/HttpServer.cpp">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/HttpServer.h">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/HttpServer.h">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/Request.cpp">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/Request.cpp">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/Request.h">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/Request.h">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/Response.cpp">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/Response.cpp">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/Response.h">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/Response.h">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/main.cpp">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/main.cpp">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/util.cpp">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/util.cpp">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/util.h">
-			<Option target="http"/>
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/util.h">
+			<Option target="MyHttp"/>
 		</Unit>
-		<Unit filename="/home/cmj/CLionProjects/http/CMakeLists.txt">
+		<Unit filename="/home/cmj/CLionProjects/MyHttp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

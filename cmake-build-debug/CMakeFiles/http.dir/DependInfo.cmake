@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cmj/CLionProjects/http/HttpServer.cpp" "/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/HttpServer.cpp.o"
-  "/home/cmj/CLionProjects/http/Request.cpp" "/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/Request.cpp.o"
-  "/home/cmj/CLionProjects/http/Response.cpp" "/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/Response.cpp.o"
-  "/home/cmj/CLionProjects/http/main.cpp" "/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/main.cpp.o"
-  "/home/cmj/CLionProjects/http/util.cpp" "/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/util.cpp.o"
+  "/home/cmj/CLionProjects/MyHttp/HttpServer.cpp" "/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/HttpServer.cpp.o"
+  "/home/cmj/CLionProjects/MyHttp/Request.cpp" "/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/Request.cpp.o"
+  "/home/cmj/CLionProjects/MyHttp/Response.cpp" "/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/Response.cpp.o"
+  "/home/cmj/CLionProjects/MyHttp/main.cpp" "/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/main.cpp.o"
+  "/home/cmj/CLionProjects/MyHttp/util.cpp" "/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

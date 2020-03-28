@@ -43,10 +43,10 @@ RM = /home/cmj/cmake-3.11.4/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cmj/CLionProjects/http
+CMAKE_SOURCE_DIR = /home/cmj/CLionProjects/MyHttp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cmj/CLionProjects/http/cmake-build-debug
+CMAKE_BINARY_DIR = /home/cmj/CLionProjects/MyHttp/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/http.dir/depend.make
@@ -59,68 +59,68 @@ include CMakeFiles/http.dir/flags.make
 
 CMakeFiles/http.dir/main.cpp.o: CMakeFiles/http.dir/flags.make
 CMakeFiles/http.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/http.dir/main.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/main.cpp.o -c /home/cmj/CLionProjects/http/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/http.dir/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/main.cpp.o -c /home/cmj/CLionProjects/MyHttp/main.cpp
 
 CMakeFiles/http.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/http/main.cpp > CMakeFiles/http.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/MyHttp/main.cpp > CMakeFiles/http.dir/main.cpp.i
 
 CMakeFiles/http.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/http/main.cpp -o CMakeFiles/http.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/MyHttp/main.cpp -o CMakeFiles/http.dir/main.cpp.s
 
 CMakeFiles/http.dir/Request.cpp.o: CMakeFiles/http.dir/flags.make
 CMakeFiles/http.dir/Request.cpp.o: ../Request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/http.dir/Request.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/Request.cpp.o -c /home/cmj/CLionProjects/http/Request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/http.dir/Request.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/Request.cpp.o -c /home/cmj/CLionProjects/MyHttp/Request.cpp
 
 CMakeFiles/http.dir/Request.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http.dir/Request.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/http/Request.cpp > CMakeFiles/http.dir/Request.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/MyHttp/Request.cpp > CMakeFiles/http.dir/Request.cpp.i
 
 CMakeFiles/http.dir/Request.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http.dir/Request.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/http/Request.cpp -o CMakeFiles/http.dir/Request.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/MyHttp/Request.cpp -o CMakeFiles/http.dir/Request.cpp.s
 
 CMakeFiles/http.dir/util.cpp.o: CMakeFiles/http.dir/flags.make
 CMakeFiles/http.dir/util.cpp.o: ../util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/http.dir/util.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/util.cpp.o -c /home/cmj/CLionProjects/http/util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/http.dir/util.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/util.cpp.o -c /home/cmj/CLionProjects/MyHttp/util.cpp
 
 CMakeFiles/http.dir/util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http.dir/util.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/http/util.cpp > CMakeFiles/http.dir/util.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/MyHttp/util.cpp > CMakeFiles/http.dir/util.cpp.i
 
 CMakeFiles/http.dir/util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http.dir/util.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/http/util.cpp -o CMakeFiles/http.dir/util.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/MyHttp/util.cpp -o CMakeFiles/http.dir/util.cpp.s
 
 CMakeFiles/http.dir/HttpServer.cpp.o: CMakeFiles/http.dir/flags.make
 CMakeFiles/http.dir/HttpServer.cpp.o: ../HttpServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/http.dir/HttpServer.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/HttpServer.cpp.o -c /home/cmj/CLionProjects/http/HttpServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/http.dir/HttpServer.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/HttpServer.cpp.o -c /home/cmj/CLionProjects/MyHttp/HttpServer.cpp
 
 CMakeFiles/http.dir/HttpServer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http.dir/HttpServer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/http/HttpServer.cpp > CMakeFiles/http.dir/HttpServer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/MyHttp/HttpServer.cpp > CMakeFiles/http.dir/HttpServer.cpp.i
 
 CMakeFiles/http.dir/HttpServer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http.dir/HttpServer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/http/HttpServer.cpp -o CMakeFiles/http.dir/HttpServer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/MyHttp/HttpServer.cpp -o CMakeFiles/http.dir/HttpServer.cpp.s
 
 CMakeFiles/http.dir/Response.cpp.o: CMakeFiles/http.dir/flags.make
 CMakeFiles/http.dir/Response.cpp.o: ../Response.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/http.dir/Response.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/Response.cpp.o -c /home/cmj/CLionProjects/http/Response.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/http.dir/Response.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/http.dir/Response.cpp.o -c /home/cmj/CLionProjects/MyHttp/Response.cpp
 
 CMakeFiles/http.dir/Response.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http.dir/Response.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/http/Response.cpp > CMakeFiles/http.dir/Response.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cmj/CLionProjects/MyHttp/Response.cpp > CMakeFiles/http.dir/Response.cpp.i
 
 CMakeFiles/http.dir/Response.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http.dir/Response.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/http/Response.cpp -o CMakeFiles/http.dir/Response.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cmj/CLionProjects/MyHttp/Response.cpp -o CMakeFiles/http.dir/Response.cpp.s
 
 # Object files for target http
 http_OBJECTS = \
@@ -140,7 +140,7 @@ http: CMakeFiles/http.dir/HttpServer.cpp.o
 http: CMakeFiles/http.dir/Response.cpp.o
 http: CMakeFiles/http.dir/build.make
 http: CMakeFiles/http.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable http"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable http"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/http.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/http.dir/clean:
 .PHONY : CMakeFiles/http.dir/clean
 
 CMakeFiles/http.dir/depend:
-	cd /home/cmj/CLionProjects/http/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cmj/CLionProjects/http /home/cmj/CLionProjects/http /home/cmj/CLionProjects/http/cmake-build-debug /home/cmj/CLionProjects/http/cmake-build-debug /home/cmj/CLionProjects/http/cmake-build-debug/CMakeFiles/http.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cmj/CLionProjects/MyHttp/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cmj/CLionProjects/MyHttp /home/cmj/CLionProjects/MyHttp /home/cmj/CLionProjects/MyHttp/cmake-build-debug /home/cmj/CLionProjects/MyHttp/cmake-build-debug /home/cmj/CLionProjects/MyHttp/cmake-build-debug/CMakeFiles/http.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/http.dir/depend
 
