@@ -3,6 +3,7 @@
 //
 
 #include "util.h"
+#include <dirent.h>
 
 
 std::vector<std::string> split(std::string str,std::string pattern)
@@ -41,7 +42,17 @@ bool contain(std::string str, std::string target){
 }
 
 
-inline bool fiel_exists (const std::string& name) {
+bool file_exists (const std::string& name) {
     std::ifstream f(name.c_str());
     return f.good();
+}
+
+
+bool dir_exists(std::string path){
+    DIR *dir;
+    if((dir = opendir(path.c_str())) == NULL){
+        return false;
+    }
+    closedir(dir);
+    return true;
 }

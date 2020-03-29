@@ -6,6 +6,7 @@ CMakeFiles/MyHttp.dir/HttpServer.cpp.o
  /home/cmj/CLionProjects/MyHttp/HttpServer.h
  /home/cmj/CLionProjects/MyHttp/Request.h
  /home/cmj/CLionProjects/MyHttp/Response.h
+ /home/cmj/CLionProjects/MyHttp/util.h
 CMakeFiles/MyHttp.dir/Request.cpp.o
  /home/cmj/CLionProjects/MyHttp/Request.cpp
  /home/cmj/CLionProjects/MyHttp/Request.h
@@ -18,6 +19,7 @@ CMakeFiles/MyHttp.dir/main.cpp.o
  /home/cmj/CLionProjects/MyHttp/Request.h
  /home/cmj/CLionProjects/MyHttp/Response.h
  /home/cmj/CLionProjects/MyHttp/main.cpp
+ /home/cmj/CLionProjects/MyHttp/util.h
 CMakeFiles/MyHttp.dir/util.cpp.o
  /home/cmj/CLionProjects/MyHttp/util.cpp
  /home/cmj/CLionProjects/MyHttp/util.h

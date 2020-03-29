@@ -13,15 +13,26 @@
 #include  <netinet/in.h>
 #include  <arpa/inet.h>
 #include <cstring>
-#include <thread>
 #include "HttpServer.h"
 #include "Request.h"
 #include "Response.h"
 #include "util.h"
 
+
 #define MAXLINE 4096
 
-HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_count), excute_pwd(pwd) {
+HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_count) {
+    if(pwd != ""){
+        auto slice = split(pwd, "/");
+        std::string s;
+        for (int i = 0; i < slice.size() - 1; ++i) {
+            if(slice[i] != ""){
+                s += "/" + slice[i];
+            }
+        }
+        this->excute_pwd = s;
+    }
+
     struct sockaddr_in server_addr;
     memset(&server_addr, 0, sizeof(&server_addr));
     server_addr.sin_family = AF_INET;
@@ -105,24 +116,35 @@ void HttpServer::Thread_handle(int conn) {
         return;
     }
 
-
-
     Response response(conn);
 
-    if (request.method == "GET" && excute_pwd != "") {
-
-        if(request.path == "/"){
-            std::string index = excute_pwd + "/index.html";
-            if(fiel_exists(index)){
-                response.set_header("Content-Type","text/html");
-                std::ifstream f(index);
-                std::ostringstream tmp;
-                tmp << f.rdbuf();
-                std::string str = tmp.str();
-                response.write(200, str);
-                disconnect(conn);
-                return;
+    if (request.method == "GET" && excute_pwd != "" && this->static_path != "") {
+        std::string dir = excute_pwd + static_path + request.path;
+        auto v = split(dir, "/");
+        std::string Dir;
+        for (int i = 0; i < v.size(); ++i) {
+            if(v[i] != ""){
+                Dir += "/" + v[i];
             }
+        }
+        std::string index = Dir + "/index.html";
+        if(dir_exists(Dir) && file_exists(index)){
+            std::ifstream f(index);
+            std::ostringstream tmp;
+            tmp << f.rdbuf();
+            std::string str = tmp.str();
+            response.set_header("Content-Type", "text/html");
+            response.write(200, str);
+            disconnect(conn);
+            return;
+        } else if(file_exists(Dir)){
+            std::ifstream f(Dir);
+            std::ostringstream tmp;
+            tmp << f.rdbuf();
+            std::string str = tmp.str();
+            response.write(200, str);
+            disconnect(conn);
+            return;
         }
     }
 
@@ -203,5 +225,12 @@ void HttpServer::do_accept(int socket_fd, int epoll_fd) {
         perror("epoll_ctl err");
         exit(1);
     }
+}
+
+void HttpServer::set_static_path(std::string path) {
+    if (path[0] != '/'){
+        throw std::string("STATIC PATH MUST START WITH '/'");
+    }
+    this->static_path = path;
 }
 

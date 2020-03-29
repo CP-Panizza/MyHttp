@@ -13,6 +13,6 @@
 
 std::vector<std::string> split(std::string str, std::string pattern);
 bool contain(std::string str, std::string target);
-inline bool fiel_exists (const std::string& name);
-
+bool file_exists (const std::string& name);
+bool dir_exists(std::string path);
 #endif //HTTP_UTIL_H
