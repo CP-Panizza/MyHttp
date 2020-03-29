@@ -18,7 +18,6 @@ public:
     Response(int fd):conn(fd){}
     void set_header(std::string, std::string);
     void write(int,std::string);
-
 };
 
 

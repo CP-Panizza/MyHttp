@@ -85,7 +85,7 @@ void HttpServer::run(int time_out) {
     }
 }
 
-// 断开连接的函数
+// 断开连接的函数,并从事件数组中删除此连接
 void HttpServer::disconnect(int cfd) {
     int ret = epoll_ctl(epoll_fd, EPOLL_CTL_DEL, cfd, NULL);
     if (ret == -1) {
@@ -184,20 +184,6 @@ void HttpServer::bind_handle(std::string method, std::string url, std::function<
 }
 
 
-
-//
-//template<class T>
-//void HttpServer::bind_handle(std::string method, std::string url, T* obj, std::function<void(T::*)(Request, Response*)> *func){
-//    auto f = std::bind(func, obj, std::placeholders::_1,std::placeholders::_2);
-//    auto h = new struct handle(url, func);
-//    if(methods.count(method)){
-//        methods[method]->push_back(h);
-//    } else {
-//        auto temp = new std::list<handle*>;
-//        temp->push_back(h);
-//        methods[method] = temp;
-//    }
-//}
 
 HttpServer::~HttpServer() {
 

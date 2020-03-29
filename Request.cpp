@@ -10,7 +10,7 @@
 
 void Request::Paser(std::string data) {
     auto x = split(data, "\r\n\r\n");
-    if (!(x.size() == 2)) {
+    if (x.size() != 2) {
         throw std::string("data err!");
     }
     if (x[1] != "") {
@@ -36,8 +36,8 @@ void Request::Paser(std::string data) {
 
     if (has_url_param) {
         auto p = split(v_path[1], "&");
-        for (auto x : p) {
-            auto param = split(x, "=");
+        for (auto y : p) {
+            auto param = split(y, "=");
             if (param.size() == 2) {
                 params[param[0]] = param[1];
             }
