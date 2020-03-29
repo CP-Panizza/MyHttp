@@ -116,6 +116,13 @@ void HttpServer::Thread_handle(int conn) {
         return;
     }
 
+    char content[MAXLINE];
+    if(request.header["Connection"] == "keep-alive"){
+        int n1 = recv(conn, content, MAXLINE, 0);
+        content[n1] = '\0';
+        request.body = std::string(content);
+    }
+
     Response response(conn);
 
     if (request.method == "GET" && excute_pwd != "" && this->static_path != "") {
@@ -129,20 +136,11 @@ void HttpServer::Thread_handle(int conn) {
         }
         std::string index = Dir + "/index.html";
         if(dir_exists(Dir) && file_exists(index)){
-            std::ifstream f(index);
-            std::ostringstream tmp;
-            tmp << f.rdbuf();
-            std::string str = tmp.str();
-            response.set_header("Content-Type", "text/html");
-            response.write(200, str);
+            response.send_file(index);
             disconnect(conn);
             return;
         } else if(file_exists(Dir)){
-            std::ifstream f(Dir);
-            std::ostringstream tmp;
-            tmp << f.rdbuf();
-            std::string str = tmp.str();
-            response.write(200, str);
+            response.send_file(Dir);
             disconnect(conn);
             return;
         }
@@ -168,7 +166,9 @@ void HttpServer::Thread_handle(int conn) {
         response.set_header("Content-Type", "text/html");
         response.write(404, "Not found!");
     }
+
     disconnect(conn);
+
 }
 
 

@@ -14,6 +14,7 @@ CMakeFiles/MyHttp.dir/Request.cpp.o
 CMakeFiles/MyHttp.dir/Response.cpp.o
  /home/cmj/CLionProjects/MyHttp/Response.cpp
  /home/cmj/CLionProjects/MyHttp/Response.h
+ /home/cmj/CLionProjects/MyHttp/util.h
 CMakeFiles/MyHttp.dir/main.cpp.o
  /home/cmj/CLionProjects/MyHttp/HttpServer.h
  /home/cmj/CLionProjects/MyHttp/Request.h

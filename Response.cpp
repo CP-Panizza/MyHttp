@@ -3,14 +3,18 @@
 //
 
 #include "Response.h"
+#include "util.h"
 #include <string>
 #include <iostream>
 #include <sys/socket.h>
 #include <cstring>
+#include <fstream>
+#include <sstream>
 
 void Response::set_header(std::string key, std::string val) {
     header[key] = val;
 }
+
 
 void Response::write(int code, std::string data) {
     std::string buf = "HTTP/1.1 " + std::to_string(code) + " " + get_descript(code) + "\r\n";
@@ -152,4 +156,85 @@ std::string Response::get_descript(int code) {
             str = "Unkonw Code";
     }
     return str;
+}
+
+
+void Response::send_head(int code, std::string type, long len) {
+    char buf[1024] = {0};
+    // 状态行
+    sprintf(buf, "http/1.1 %d %s\r\n", code, get_descript(code).c_str());
+    send(conn, buf, strlen(buf), 0);
+    // 消息报头
+    memset(buf, 0, sizeof(buf));
+    sprintf(buf, "Content-Type:%s\r\n", type.c_str());
+    sprintf(buf + strlen(buf), "Content-Length:%ld\r\n", len);
+    send(conn, buf, strlen(buf), 0);
+    // 空行
+    send(conn, "\r\n", 2, 0);
+}
+
+void Response::send_file(std::string path) {
+    std::string buf = "HTTP/1.1 " + std::to_string(200) + " " + get_descript(200) + "\r\n";
+    buf += ("Content-Type:" + get_file_type(path) + "\r\n");
+    buf += ("Content-Length:" + std::to_string(file_size(path.c_str()))  + "\r\n");
+    buf += "\r\n";
+    if (send(conn, (void *) buf.c_str(), strlen(buf.c_str()), 0) < 0) {
+        printf("send head error: %s(errno: %d)\n", strerror(errno), errno);
+    }
+
+    int fd = open(path.c_str(), O_RDONLY);
+    if(fd == -1){
+        perror("open err");
+        return;
+    }
+    char buff[4096];
+    int ret = 0;
+    while((ret = read(fd, buff, sizeof(buff))) > 0){
+        send(conn, buff, ret, 0);
+    }
+    if(ret == -1){
+        perror("read err");
+        return;
+    }
+    close(fd);
+}
+
+std::string Response::get_file_type(std::string file) {
+    auto type = split(file, ".");
+    if (type.size() != 2) {
+        return "text/plain;charset=utf-8";
+    }
+
+    if (type[1] == "html")
+        return "text/html; charset=utf-8";
+    if (type[1] == "jpg")
+        return "image/jpeg";
+    if (type[1] == "gif")
+        return "image/gif";
+    if (type[1] == "png")
+        return "image/png";
+    if (type[1] == "css")
+        return "text/css";
+    if (type[1] == "au")
+        return "audio/basic";
+    if (type[1] == "wav")
+        return "audio/wav";
+    if (type[1] == "avi")
+        return "video/x-msvideo";
+    if (type[1] == "mov")
+        return "video/quicktime";
+    if (type[1] == "mpeg")
+        return "video/mpeg";
+    if (type[1] == "vrml")
+        return "model/vrml";
+    if (type[1] == "midi")
+        return "audio/midi";
+    if (type[1] == "mp3")
+        return "audio/mpeg";
+    if (type[1] == "ogg")
+        return "application/ogg";
+    if (type[1] == "pac")
+        return "application/x-ns-proxy-autoconfig";
+
+    return "";
 }

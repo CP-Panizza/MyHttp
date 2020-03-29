@@ -39,6 +39,8 @@ void Request::Paser(std::string data) {
         for (auto y : p) {
             auto param = split(y, "=");
             if (param.size() == 2) {
+                trim_space(param[0]);
+                trim_space(param[1]);
                 params[param[0]] = param[1];
             }
         }
@@ -48,6 +50,8 @@ void Request::Paser(std::string data) {
         if (all[i] != "" && contain(all[i], ":")) {
             auto head = split(all[i], ":");
             if (head.size() == 2) {
+                trim_space(head[0]);
+                trim_space(head[1]);
                 this->header[head[0]] = head[1];
             }
         }

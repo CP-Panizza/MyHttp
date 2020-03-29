@@ -4,9 +4,11 @@
 
 #include "util.h"
 #include <dirent.h>
+#include <sys/stat.h>
 
 
-std::vector<std::string> split(std::string str,std::string pattern)
+
+std::vector<std::string> split(std::string str, std::string pattern)
 {
     std::string::size_type pos;
     std::vector<std::string> result;
@@ -56,3 +58,22 @@ bool dir_exists(std::string path){
     closedir(dir);
     return true;
 }
+
+long file_size(const char *filepath){
+    struct stat info;
+    stat(filepath, &info);
+    int size = info.st_size;
+    return size;
+}
+
+void trim_space(std::string &s)
+ {
+    int index = 0;
+    if( !s.empty())
+    {
+        while( (index = s.find(' ',index)) != std::string::npos)
+        {
+            s.erase(index,1);
+        }
+    }
+ }

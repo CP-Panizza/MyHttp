@@ -69,6 +69,8 @@ map
 /home/cmj/CLionProjects/MyHttp/Response.cpp
 Response.h
 /home/cmj/CLionProjects/MyHttp/Response.h
+util.h
+/home/cmj/CLionProjects/MyHttp/util.h
 string
 -
 iostream
@@ -77,9 +79,19 @@ sys/socket.h
 -
 cstring
 -
+fstream
+-
+sstream
+-
 
 /home/cmj/CLionProjects/MyHttp/Response.h
 map
+-
+fcntl.h
+-
+unistd.h
+-
+sys/socket.h
 -
 
 /home/cmj/CLionProjects/MyHttp/main.cpp
@@ -98,6 +110,8 @@ util.h
 util.h
 /home/cmj/CLionProjects/MyHttp/util.h
 dirent.h
+-
+sys/stat.h
 -
 
 /home/cmj/CLionProjects/MyHttp/util.h
