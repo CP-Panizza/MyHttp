@@ -98,7 +98,7 @@ void HttpServer::Thread_handle(int conn) {
     char buf[MAXLINE] = {0};
     int n;
     n = recv(conn, buf, MAXLINE, 0);
-    if (n < 0) {
+    if (n < 0 || n == 0) {
         disconnect(conn);
         return;
     }
