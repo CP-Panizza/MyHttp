@@ -10,6 +10,7 @@ int main(int argc, const char **argv) {
     std::cout << argv[0] << std::endl;
     HttpServer *server = new HttpServer(8080, 100, std::string(argv[0]));
     server->set_static_path("/static");
+
     server->bind_handle("GET", "/", [](Request req, Response *resp) {
         std::cout << "get a request" << std::endl;
         resp->set_header("Content-Type", "text/html");
@@ -22,6 +23,13 @@ int main(int argc, const char **argv) {
         resp->write(200, "Hello");
     });
 
+    server->bind_handle("PUT", "/", [](Request req, Response *resp) {
+        std::cout << "PUT run:"<< req.body << std::endl;
+        resp->set_header("Content-Type", "text/html");
+        resp->write(200, "Hello PUT!");
+    });
+
     server->run();
+    delete(server);
     return 0;
 }

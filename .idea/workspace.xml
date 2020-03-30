@@ -12,12 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc3a854e-e5fb-41da-8ed9-a0ce57e0bad2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HttpServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/HttpServer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Response.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Response.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Response.h" beforeDir="false" afterPath="$PROJECT_DIR$/Response.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MyHttp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MyHttp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -31,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HttpServer.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HttpServer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HttpServer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="128" selection-start-line="128" selection-end-line="128" />
+            <state relative-caret-position="243">
+              <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
               <folding>
                 <element signature="e#37#56#0" expanded="true" />
               </folding>
@@ -43,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Request.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Request.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Request.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            <state relative-caret-position="220">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="e#37#56#0" expanded="true" />
               </folding>
@@ -58,8 +52,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="479">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -112,10 +106,10 @@
         <option value="$PROJECT_DIR$/util.h" />
         <option value="$PROJECT_DIR$/Response.h" />
         <option value="$PROJECT_DIR$/HttpServer.h" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Response.cpp" />
         <option value="$PROJECT_DIR$/Request.cpp" />
         <option value="$PROJECT_DIR$/HttpServer.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -199,15 +193,16 @@
       <workItem from="1585368948650" duration="17064000" />
       <workItem from="1585453886459" duration="307000" />
       <workItem from="1585456284743" duration="22284000" />
-      <workItem from="1585587865413" duration="3148000" />
+      <workItem from="1585587865413" duration="3878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42803000" />
+    <option name="totallyTimeSpent" value="43533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16796875" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -217,9 +212,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3188623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36826348" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36826348" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44610777" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44610777" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -237,7 +232,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="73" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Request.cpp</url>
+          <line>13</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="75" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -485,16 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Response.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -505,20 +497,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Request.cpp">
+    <entry file="file://$PROJECT_DIR$/HttpServer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        <state relative-caret-position="243">
+          <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
           <folding>
             <element signature="e#37#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HttpServer.cpp">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        <state relative-caret-position="479">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Request.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
             <element signature="e#37#56#0" expanded="true" />
           </folding>
