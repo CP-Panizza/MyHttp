@@ -73,7 +73,7 @@ void HttpServer::run() {
         } else {
             for (int i = 0; i < ret; i++) {
                 if (epoll_events[i].data.fd == socket_fd) {
-                    do_accept(socket_fd, epoll_fd);
+                    do_accept(socket_fd);
                 } else {
                     Thread_handle(epoll_events[i].data.fd);
                 }
@@ -190,7 +190,7 @@ HttpServer::~HttpServer() {
 
 }
 
-void HttpServer::do_accept(int socket_fd, int epoll_fd) {
+void HttpServer::do_accept(int socket_fd) {
     struct sockaddr_in cli;
     socklen_t len = sizeof(cli);
     int new_fd = accept(socket_fd, (struct sockaddr *) &cli, &len);

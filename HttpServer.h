@@ -22,7 +22,7 @@ public:
     HttpServer(int port, int max_count, std::string);
     ~HttpServer();
     void set_static_path(std::string);
-    void do_accept(int socket_fd, int epoll_fd);
+    void do_accept(int socket_fd);
     void disconnect(int cfd);
     void bind_handle(std::string method, std::string url, std::function<void(Request, Response*)> func);
     void Thread_handle(int conn);
