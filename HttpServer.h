@@ -26,7 +26,7 @@ public:
     void disconnect(int cfd);
     void bind_handle(std::string method, std::string url, std::function<void(Request, Response*)> func);
     void Thread_handle(int conn);
-    void run(int time_out);
+    void run();
 
 private:
     std::string excute_pwd; //程序启动路径
@@ -35,6 +35,7 @@ private:
     struct epoll_event *epoll_events;
     int epoll_fd;
     int count;
+    int m_port;
     std::map<std::string, std::list<handle*>*> methods;
 };
 

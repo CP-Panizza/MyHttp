@@ -21,12 +21,12 @@
 
 #define MAXLINE 4096
 
-HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_count) {
-    if(pwd != ""){
+HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_count), m_port(port) {
+    if (pwd != "") {
         auto slice = split(pwd, "/");
         std::string s;
         for (int i = 0; i < slice.size() - 1; ++i) {
-            if(slice[i] != ""){
+            if (slice[i] != "") {
                 s += "/" + slice[i];
             }
         }
@@ -63,19 +63,16 @@ HttpServer::HttpServer(int port, int max_count, std::string pwd) : count(max_cou
 }
 
 
-void HttpServer::run(int time_out) {
-    std::cout << "MyHttp started" << std::endl;
+void HttpServer::run() {
+    std::cout << "http server started at port:" << std::to_string(m_port) << std::endl;
     int ret;
     while (1) {
-        ret = epoll_wait(epoll_fd, epoll_events, count, time_out);
-        if (ret == 0) {
+        ret = epoll_wait(epoll_fd, epoll_events, count, -1);
+        if (ret <= 0) {
             continue;
-        } else if (ret == -1) {
-            printf("socket error: %s(errno: %d)\n", strerror(errno), errno);
         } else {
             for (int i = 0; i < ret; i++) {
                 if (epoll_events[i].data.fd == socket_fd) {
-                    //接受新的链接，并设置为非阻塞
                     do_accept(socket_fd, epoll_fd);
                 } else {
                     Thread_handle(epoll_events[i].data.fd);
@@ -98,12 +95,10 @@ void HttpServer::disconnect(int cfd) {
 
 void HttpServer::Thread_handle(int conn) {
     Request request;
-    char buf[MAXLINE];
-    int n = recv(conn, buf, MAXLINE, 0);
-    if (n == 0) {
-        disconnect(conn);
-        return;
-    } else if (n == -1) {
+    char buf[MAXLINE] = {0};
+    int n;
+    n = recv(conn, buf, MAXLINE, 0);
+    if (n < 0) {
         disconnect(conn);
         return;
     }
@@ -116,30 +111,37 @@ void HttpServer::Thread_handle(int conn) {
         return;
     }
 
-    char content[MAXLINE];
-    if(request.header["Connection"] == "keep-alive"){
-        int n1 = recv(conn, content, MAXLINE, 0);
-        content[n1] = '\0';
-        request.body = std::string(content);
+    if(request.header.count("Content-Length")){
+        long content_length = atol(request.header["Content-Length"].c_str());
+        if(request.body.size() != content_length){
+            char buff[MAXLINE];
+            int len;
+            len = recv(conn, buff, MAXLINE, 0);
+            if (len < 0) {
+                disconnect(conn);
+                return;
+            }
+            buff[len] = '\0';
+            request.body = std::string(buff);
+        }
     }
 
     Response response(conn);
-
     if (request.method == "GET" && excute_pwd != "" && this->static_path != "") {
         std::string dir = excute_pwd + static_path + request.path;
         auto v = split(dir, "/");
         std::string Dir;
         for (int i = 0; i < v.size(); ++i) {
-            if(v[i] != ""){
+            if (v[i] != "") {
                 Dir += "/" + v[i];
             }
         }
         std::string index = Dir + "/index.html";
-        if(dir_exists(Dir) && file_exists(index)){
+        if (dir_exists(Dir) && file_exists(index)) {
             response.send_file(index);
             disconnect(conn);
             return;
-        } else if(file_exists(Dir)){
+        } else if (file_exists(Dir)) {
             response.send_file(Dir);
             disconnect(conn);
             return;
@@ -168,7 +170,6 @@ void HttpServer::Thread_handle(int conn) {
     }
 
     disconnect(conn);
-
 }
 
 
@@ -184,7 +185,6 @@ void HttpServer::bind_handle(std::string method, std::string url, std::function<
 }
 
 
-
 HttpServer::~HttpServer() {
 
 }
@@ -198,13 +198,13 @@ void HttpServer::do_accept(int socket_fd, int epoll_fd) {
         exit(1);
     }
 
-    //set nonblock socket
-    int flag = fcntl(new_fd, F_GETFL);
-    flag |= O_NONBLOCK;
-    fcntl(new_fd, F_SETFL, flag);
+//    //set nonblock socket
+//    int flag = fcntl(new_fd, F_GETFL);
+//    flag |= O_NONBLOCK;
+//    fcntl(new_fd, F_SETFL, flag);
 
     struct epoll_event ev;
-    ev.events = EPOLLIN | EPOLLET;
+    ev.events = EPOLLIN;
     ev.data.fd = new_fd;
     int ret = epoll_ctl(epoll_fd, EPOLL_CTL_ADD, new_fd, &ev);
     if (ret == -1) {
@@ -214,7 +214,7 @@ void HttpServer::do_accept(int socket_fd, int epoll_fd) {
 }
 
 void HttpServer::set_static_path(std::string path) {
-    if (path[0] != '/'){
+    if (path[0] != '/') {
         throw std::string("STATIC PATH MUST START WITH '/'");
     }
     this->static_path = path;

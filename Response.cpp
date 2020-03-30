@@ -24,9 +24,8 @@ void Response::write(int code, std::string data) {
     buf += "\r\n";
     buf += data;
 
-    if (send(conn, (void *) buf.c_str(), strlen(buf.c_str()), 0) < 0) {
-        printf("send msg error: %s(errno: %d)\n", strerror(errno), errno);
-    }
+    int tmp;
+    tmp = send(conn, buf.c_str(), strlen(buf.c_str()), 0);
 }
 
 std::string Response::get_descript(int code) {
@@ -158,20 +157,6 @@ std::string Response::get_descript(int code) {
     return str;
 }
 
-
-void Response::send_head(int code, std::string type, long len) {
-    char buf[1024] = {0};
-    // 状态行
-    sprintf(buf, "http/1.1 %d %s\r\n", code, get_descript(code).c_str());
-    send(conn, buf, strlen(buf), 0);
-    // 消息报头
-    memset(buf, 0, sizeof(buf));
-    sprintf(buf, "Content-Type:%s\r\n", type.c_str());
-    sprintf(buf + strlen(buf), "Content-Length:%ld\r\n", len);
-    send(conn, buf, strlen(buf), 0);
-    // 空行
-    send(conn, "\r\n", 2, 0);
-}
 
 void Response::send_file(std::string path) {
     std::string buf = "HTTP/1.1 " + std::to_string(200) + " " + get_descript(200) + "\r\n";
