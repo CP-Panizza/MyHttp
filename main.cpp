@@ -4,10 +4,7 @@
 #include "HttpServer.h"
 #include "util.h"
 
-int a = 0;
-
 int main(int argc, const char **argv) {
-    std::cout << argv[0] << std::endl;
     HttpServer *server = new HttpServer(8080, 100, std::string(argv[0]));
     server->set_static_path("/static");
 

@@ -13,7 +13,6 @@
 class Response {
 private:
     int conn;
-    int code;
     std::map<std::string,std::string> header;
     std::string get_descript(int code);
 

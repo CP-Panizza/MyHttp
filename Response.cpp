@@ -23,9 +23,7 @@ void Response::write(int code, std::string data) {
     }
     buf += "\r\n";
     buf += data;
-
-    int tmp;
-    tmp = send(conn, buf.c_str(), strlen(buf.c_str()), 0);
+    send(conn, buf.c_str(), strlen(buf.c_str()), 0);
 }
 
 std::string Response::get_descript(int code) {
